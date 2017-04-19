@@ -12,7 +12,7 @@ var opts = {
 var capture = function (time) {
   var p = new Promise( function( res, rej ) {
     NodeWebcam.capture("./images/" + time + ".jpg", opts, function( err, location ) {
-        if ( err ) rej()
+        if ( err ) console.log(err);
         console.log('Image Captured at ' + location);
         res(location);
     });
