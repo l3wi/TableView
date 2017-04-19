@@ -44,10 +44,14 @@ Toby.prototype._onMessage = function (message) {
 
 
 Toby.prototype._sayHi = function (originalMessage) {
+    var self = this;
     var now = moment().format('x');
     Webcam(now).then( function(location) {
-      this._uploadImage(originalMessage, location);
-    }.bind(this));
+      self._uploadImage(originalMessage, location);
+    })
+    .catch(function (er) {
+      console.error(err.message);
+    });
 };
 
 Toby.prototype._uploadImage = function (originalMessage, location) {
@@ -63,7 +67,6 @@ Toby.prototype._uploadImage = function (originalMessage, location) {
 
 Toby.prototype._sendMessage = function (originalMessage, url) {
   var self = this;
-  console.log(originalMessage);
   var channel = self._getChannelById(originalMessage.channel);
   self.postMessageToChannel(channel.name, "Here\'s the table! " + url, { as_user: true});
   console.log("Mentioned!");
