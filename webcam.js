@@ -12,8 +12,7 @@ var capture = function (time) {
            camera.stop();
          }, 500);
       });
-      camera.on("stop", function(err, timestamp, filename) {
-      	console.log('Image Captured at ' + filename);
+      camera.on("stop", function() {
         res("./images/photo.jpg");
       });
     });

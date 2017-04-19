@@ -62,14 +62,21 @@ Toby.prototype._uploadImage = function (originalMessage, location) {
     })
     .catch(function (err) {
         console.error(err.message);
+        self._sendMessage(originalMessage, json.data.link, err)
     });
 }
 
-Toby.prototype._sendMessage = function (originalMessage, url) {
+Toby.prototype._sendMessage = function (originalMessage, url, err) {
   var self = this;
   var channel = self._getChannelById(originalMessage.channel);
-  self.postMessageToChannel(channel.name, "Here\'s the table! " + url, { as_user: true});
-  console.log("Mentioned!");
+  if (!err) {
+    self.postMessageToChannel(channel.name, "Here\'s the table! " + url, { as_user: true});
+    console.log("Success!");
+  } else {
+    self.postMessageToChannel(channel.name, "Oh noes! Something went wrong.", { as_user: true});
+    console.log("Failure! Message Sent though!");
+  }
+
 }
 
 
