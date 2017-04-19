@@ -1,0 +1,20 @@
+{
+  "name": "toby-bot",
+  "version": "0.1",
+  "description": "A simple bot to upload an image and share the url.",
+  "main": "toby.js",
+  "author": "@l3wi",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./run.js"
+  },
+  "dependencies": {
+    "async": "^1.4.1",
+    "imgur": "^0.2.1",
+    "moment": "^2.18.1",
+    "node-webcam": "^0.3.4",
+    "progress": "^1.1.8",
+    "request": "^2.60.0",
+    "slackbots": "^0.3.0"
+  }
+}
