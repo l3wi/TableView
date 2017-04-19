@@ -7,11 +7,12 @@
  *
  * @author Luciano Mammino <lucianomammino@gmail.com>
  */
-
+var dotenv = require('dotenv');
 var Toby = require('./toby.js');
 
-var token = 'xoxb-165258535889-HFUkxpW4hyfnqevJIWWsB0Zt';
-var name = 'toby';
+dotenv.load();
+var token = process.env.TOKEN;
+var name = process.env.NAME;
 
 var toby = new Toby({
     token: token,
