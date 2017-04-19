@@ -51,10 +51,10 @@ Toby.prototype._sayHi = function (originalMessage) {
 };
 
 Toby.prototype._uploadImage = function (originalMessage, location) {
-  imgur.uploadFile(location)
-    .then(function (json) {
+  var self = this;
+  imgur.uploadFile(location).then(function (json) {
         console.log(json.data.link);
-        this._sendMessage(originalMessage, json.data.link)
+        self._sendMessage(originalMessage, json.data.link)
     })
     .catch(function (err) {
         console.error(err.message);
@@ -63,6 +63,7 @@ Toby.prototype._uploadImage = function (originalMessage, location) {
 
 Toby.prototype._sendMessage = function (originalMessage, url) {
   var self = this;
+  console.log(originalMessage);
   var channel = self._getChannelById(originalMessage.channel);
   self.postMessageToChannel(channel.name, "Here\'s the table! " + url, { as_user: true});
   console.log("Mentioned!");
@@ -83,8 +84,7 @@ Toby.prototype._isChatMessage = function (message) {
 
 Toby.prototype._isChannelConversation = function (message) {
     return typeof message.channel === 'string' &&
-        message.channel[0] === 'C' ||
-        message.channel[0] === 'D'
+        message.channel[0] === 'C'
         ;
 };
 
