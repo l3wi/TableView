@@ -1,20 +1,20 @@
-var NodeWebcam = require( "node-webcam" );
+var picam = require( "picam" );
 
 var opts = {
     width: 1280,
     height: 720,
-    delay: 0,
-    quality: 100,
-    output: "jpg",
-    verbose: true
+    quality: 100
 }
 
 var capture = function (time) {
   var p = new Promise( function( res, rej ) {
-    NodeWebcam.capture("./images/" + time + ".jpg", opts, function( err, location ) {
-        if ( err ) console.log(err);
-        console.log('Image Captured at ' + location);
-        res(location);
+    var location = "./images/" + time + ".jpg"
+    picam.still(location, opts , function(err,stdin,stdout) {
+      console.log(stdin);
+      console.log(stdout);
+      if(err) throw err;
+      console.log('Image Captured at ' + location);
+      res(location);
     });
   })
   return p;
