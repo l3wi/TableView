@@ -10,7 +10,7 @@ var imgur = require('imgur');
 
 var Toby = function Constructor(settings) {
     this.settings = settings;
-    this.settings.name = this.settings.name || 'tom';
+    this.settings.name = this.settings.name || 'Toby';
     this.user = null;
 };
 
@@ -50,7 +50,7 @@ Toby.prototype._sayHi = function (originalMessage) {
     }.bind(this));
 };
 
-Toby.prototype._uploadImage = function (originalMessage, url) {
+Toby.prototype._uploadImage = function (originalMessage, location) {
   imgur.uploadFile(location)
     .then(function (json) {
         console.log(json.data.link);
@@ -76,14 +76,6 @@ Toby.prototype._loadBotUser = function () {
     })[0];
 };
 
-
-Toby.prototype._welcomeMessage = function () {
-    this.postMessageToChannel(this.channels[0].name, 'Hi guys, roundhouse-kick anyone?' +
-        '\n I can tell jokes, but very honest ones. Just say `Chuck Norris` or `' + this.name + '` to invoke me!',
-        {as_user: true});
-};
-
-
 Toby.prototype._isChatMessage = function (message) {
     return message.type === 'message' && Boolean(message.text);
 };
@@ -91,7 +83,8 @@ Toby.prototype._isChatMessage = function (message) {
 
 Toby.prototype._isChannelConversation = function (message) {
     return typeof message.channel === 'string' &&
-        message.channel[0] === 'C'
+        message.channel[0] === 'C' ||
+        message.channel[0] === 'D'
         ;
 };
 
@@ -102,7 +95,7 @@ Toby.prototype._isChannelConversation = function (message) {
  * @private
  */
 Toby.prototype._isMentioningToby = function (message) {
-    return message.text.toLowerCase().indexOf('peeping tom') > -1 ||
+    return message.text.toLowerCase().indexOf('table free') > -1 ||
         message.text.toLowerCase().indexOf(this.name) > -1;
 };
 
