@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "async": "^1.4.1",
+    "dotenv": "^4.0.0",
     "imgur": "^0.2.1",
     "moment": "^2.18.1",
     "node-webcam": "^0.3.4",
