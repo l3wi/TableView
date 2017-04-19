@@ -265,6 +265,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.3.6"
 
+lodash@*:
+  version "4.17.4"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
 mime-db@~1.27.0:
   version "1.27.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.27.0.tgz#820f572296bbd20ec25ed55e5b5de869e5436eb1"
@@ -354,6 +358,12 @@ q@^1.0.1:
 qs@~6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
+
+raspicam@^0.2.13:
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/raspicam/-/raspicam-0.2.13.tgz#06a9f8ae32ab95a7249c96620021d8df2b1c8561"
+  dependencies:
+    lodash "*"
 
 request@^2.40.0, request@^2.56.0, request@^2.60.0:
   version "2.81.0"

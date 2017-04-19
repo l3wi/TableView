@@ -1,22 +1,23 @@
-var picam = require( "picam" );
-
-var opts = {
-    width: 1280,
-    height: 720,
-    quality: 100
-}
+var RaspiCam = require("raspicam");
 
 var capture = function (time) {
   var p = new Promise( function( res, rej ) {
-    var location = "./images/" + time + ".jpg"
-    picam.still(location, opts , function(err,stdin,stdout) {
-      console.log(stdin);
-      console.log(stdout);
-      if(err) throw err;
-      console.log('Image Captured at ' + location);
-      res(location);
+      var opts = {
+          width: 1280,
+          height: 720,
+          timeout: 0,
+          encoding: 'jpg',
+          mode: 'photo',
+          quality: 80,
+          output: "./images/" + time + ".jpg"
+      }
+      var camera = new RaspiCam({opts});
+      camera.start( );
+      console.log('Image Captured at ' + opts.output);
+      setTimeout(function () {
+        res(opts.output);
+      }, 1000);
     });
-  })
   return p;
 }
 

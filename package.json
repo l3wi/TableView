@@ -16,6 +16,7 @@
     "node-webcam": "^0.3.4",
     "picam": "^0.1.3",
     "progress": "^1.1.8",
+    "raspicam": "^0.2.13",
     "request": "^2.60.0",
     "slackbots": "^0.3.0"
   }
