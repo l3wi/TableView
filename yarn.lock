@@ -269,6 +269,10 @@ lodash@*:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
+lodash@^3.6.0:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+
 mime-db@~1.27.0:
   version "1.27.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.27.0.tgz#820f572296bbd20ec25ed55e5b5de869e5436eb1"
@@ -292,6 +296,14 @@ moment@^2.18.1:
 nan@1.8.x:
   version "1.8.4"
   resolved "https://registry.yarnpkg.com/nan/-/nan-1.8.4.tgz#3c76b5382eab33e44b758d2813ca9d92e9342f34"
+
+node-slack-upload@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/node-slack-upload/-/node-slack-upload-1.2.1.tgz#7d52dae4208624616a95f8d73d0fa8c92ec9d4b8"
+  dependencies:
+    lodash "^3.6.0"
+    request "^2.54.0"
+    underscore.string "^3.0.3"
 
 node-webcam@^0.3.4:
   version "0.3.4"
@@ -365,7 +377,7 @@ raspicam@^0.2.13:
   dependencies:
     lodash "*"
 
-request@^2.40.0, request@^2.56.0, request@^2.60.0:
+request@^2.40.0, request@^2.54.0, request@^2.56.0, request@^2.60.0:
   version "2.81.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:
@@ -411,6 +423,10 @@ sntp@1.x.x:
   dependencies:
     hoek "2.x.x"
 
+sprintf-js@^1.0.3:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.1.tgz#36be78320afe5801f6cea3ee78b6e5aab940ea0c"
+
 sshpk@^1.7.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.11.0.tgz#2d8d5ebb4a6fab28ffba37fa62a90f4a3ea59d77"
@@ -450,12 +466,23 @@ ultron@1.0.x:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.0.2.tgz#ace116ab557cd197386a4e88f4685378c8b2e4fa"
 
+underscore.string@^3.0.3:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-3.3.4.tgz#2c2a3f9f83e64762fdc45e6ceac65142864213db"
+  dependencies:
+    sprintf-js "^1.0.3"
+    util-deprecate "^1.0.2"
+
 utf-8-validate@1.1.x:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/utf-8-validate/-/utf-8-validate-1.1.0.tgz#521a6bb2189d0b307ddc5b79c3c95a5fd8085db4"
   dependencies:
     bindings "1.2.x"
     nan "1.8.x"
+
+util-deprecate@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
 uuid@^3.0.0:
   version "3.0.1"
